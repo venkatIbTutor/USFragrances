@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List | American Fragrances</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="/images/logo.jpg" alt="American Fragrances">
+    </div>
+    <nav>
+        <ul>
+            <!--            <li><a href="#">USER ANALYTICS</a></li>-->
+            <li><a href="#">FOR MEN</a></li>
+            <li><a href="#">FOR WOMEN</a></li>
+            <li><a href="#">BRANDS</a></li>
+            <li><a href="#">Inspire Me</a></li>
+            <li><a href="#">Gift Voucher</a></li>
+            <li><a href="/products" >Search</a></li>
+            <li><a href="#">Refill</a></li>
+            <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="/auth/login"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="product-container">
+    <aside class="filters">
+        <h3>SHOP BY ANALYTICS</h3>
+        <ul>
+            <li><a href="?category=Vintage">Vintage</a></li>
+            <li><a href="?category=Bohemian">Bohemian</a></li>
+            <li><a href="?category=Chic">Chic</a></li>
+            <li><a href="?category=Casual">Casual</a></li>
+        </ul>
+    </aside>
+
+    <div class="product-list">
+        <div th:each="product : ${products}" class="product-item">
+            <img style="width:90%;height:50%;" th:src="@{/images/products/{image}(image=${product.image})}" alt="Product Image">
+            <h3 th:text="${product.name}"></h3>
+            <p th:text="${product.description}"></p>
+            <p>Price: $<span th:text="${product.price}"></span></p>
+            <a href="#" th:attr="data-id=${product.id}" class="add-to-cart-btn">Add to Cart</a>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $(".add-to-cart-btn").click(function (e) {
+            e.preventDefault(); // Prevent page redirect
+            let productId = $(this).data("id");
+
+            $.ajax({
+                url: "/cart/add/" + productId,
+                type: "POST",
+                success: function (response) {
+                    alert("Product added to cart!");
+                },
+                error: function () {
+                    alert("Error adding to cart.");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

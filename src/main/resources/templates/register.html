@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #5a9ea4;
+        }
+        .register-container {
+            background-color: #6ea8b0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 2px 2px 10px gray;
+        }
+        .register-container label {
+            float: left;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000;
+            border-radius: 5px;
+            float: left;
+        }
+        button {
+            background-color: #5a9ea4;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 50%;
+            font-weight: 600;
+        }
+        .login-link {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #5a9ea4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="register-container">
+    <h2>Create Your Account</h2>
+    <p>Join now to explore personalized fragrance options!</p>
+
+    <form th:action="@{/auth/register}" method="post">
+        <label>Email address</label>
+        <input type="email" name="email" placeholder="Enter your Email" required />
+        <label>Phone</label>
+        <input type="phone" max="10" min="10" name="phone" placeholder="Enter Your Phone" required />
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create a password" required />
+
+        <button type="submit">REGISTER</button>
+    </form>
+
+    <div class="login-link">
+        <h4>Already have an account?</h4>
+        <a href="/auth/login">
+            <button>LOGIN</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

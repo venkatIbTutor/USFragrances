@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e9f0f1;
+        }
+
+        .header {
+            background-color: #5a9ea4;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: #6ea8b0;
+            width: 250px;
+            height: 100vh;
+            padding-top: 20px;
+            float: left;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            background-color: #4d8c92;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Admin Dashboard</h1>
+</div>
+
+<div class="sidebar">
+    <a th:href="@{/admin/users}">Manage Users</a>
+    <a th:href="@{/admin/products}">Manage Products</a>
+    <a th:href="@{/admin/orders}">Manage Orders</a>
+    <a th:href="@{/admin/reports}">Reports & Stats</a>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+
+<div class="main-content">
+    <div class="card">
+        <h2>Welcome Admin!</h2>
+        <p>Here you can manage users, products, orders, and view statistics.</p>
+    </div>
+
+    <div class="card">
+        <h3>Quick Stats</h3>
+        <ul>
+            <li>Total Users: <strong th:text="${totalUsers}">100</strong></li>
+            <li>Total Products: <strong th:text="${totalProducts}">50</strong></li>
+            <li>Orders Today: <strong th:text="${ordersToday}">5</strong></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

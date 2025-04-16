@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>American Fragrances - Home</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img th:src="@{/images/logo.jpg}" alt="American Fragrances">
+    </div>
+    <nav>
+        <ul>
+<!--            <li><a href="#">USER ANALYTICS</a></li>-->
+            <li><a href="#">FOR MEN</a></li>
+            <li><a href="#">FOR WOMEN</a></li>
+            <li><a href="#">BRANDS</a></li>
+            <li><a href="#">Inspire Me</a></li>
+            <li><a href="#">Gift Voucher</a></li>
+            <li><a href="/products" >Search</a></li>
+            <li><a href="#">Refill</a></li>
+            <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="/auth/login"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="banner-text" style="width:35%">
+        <h1>Happy Father's Day</h1>
+        <h3 class="sale">Super Sale up to 50%</h3>
+    </div>
+    <div class="banner-image" style="width:40%">
+        <img th:src="@{/images/perfume.jpeg}" height="450px" width="580px" alt="Featured Perfume">
+        <p>Your Perfect Perfume Awaits—Sign Up Now to Find Your Scent that Suits Your Personality using Your Self-Defined Personal Profile from Thousands of Products.</p>
+    </div>
+    <blockquote style="width:35%">My dad's my best mate, and he always will be — <b>Cher Lloyd</b></blockquote>
+</section>
+
+<div class="help-widget">
+<!--    <img src="/images/chatbot.png" alt="Chat Assistant">-->
+    <p>How May I Help You?</p>
+</div>
+
+</body>
+</html>

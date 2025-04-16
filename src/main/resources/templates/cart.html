@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Cart | American Fragrances</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img th:src="@{/images/logo.jpg}" alt="American Fragrances">
+    </div>
+    <nav>
+        <ul>
+            <!--            <li><a href="#">USER ANALYTICS</a></li>-->
+            <li><a href="/products">FOR MEN</a></li>
+            <li><a href="/products">FOR WOMEN</a></li>
+            <li><a href="/products">BRANDS</a></li>
+            <li><a href="#">Inspire Me</a></li>
+            <li><a href="#">Gift Voucher</a></li>
+            <li><a href="/products" >Search</a></li>
+            <li><a href="#">Refill</a></li>
+            <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="/auth/login"><i class="fas fa-user"></i> Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="cart-container">
+    <h2>Your Cart (<span th:text="${cart.items.size()}"></span> Items)</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="item : ${cart.items}">
+            <td th:text="${item.product.name}"></td>
+            <td>$<span th:text="${item.product.price}"></span></td>
+            <td>
+                <form th:action="@{/cart/update}" method="post">
+                    <input type="hidden" name="productId" th:value="${item.product.id}">
+                    <input type="number" name="quantity" th:value="${item.quantity}" min="1">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+            <td>$<span th:text="${item.totalPrice}"></span></td>
+            <td><a th:href="@{/cart/remove/{id}(id=${item.product.id})}">Remove</a></td>
+        </tr>
+    </table>
+
+    <h3>Subtotal: $<span th:text="${cart.totalPrice}"></span></h3>
+
+    <a href="/checkout" class="checkout-button">Proceed to Checkout</a>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f0f2;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Banner Section */
+.banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    background-color: #5f9ea0;
+    color: white;
+    text-align: left;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.banner-text {
+    max-width: 50%;
+}
+
+.banner h2 {
+    font-size: 28px;
+}
+
+.sale {
+    font-size: 22px;
+    color: yellow;
+    font-weight: bold;
+}
+
+.banner-image img {
+    //width: 200px;
+    border-radius: 10px;
+}
+
+blockquote {
+    font-style: italic;
+    color: white;
+    text-align: right;
+    margin-right: 30px;
+}
+
+/* Help Widget */
+.help-widget {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.help-widget img {
+    width: 50px;
+}
+
+.product-container {
+    display: flex;
+    margin: 20px;
+}
+
+.filters {
+    width: 20%;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-item {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    height:auto;
+}
+
+.cart-container {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
